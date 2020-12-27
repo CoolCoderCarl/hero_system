@@ -5,6 +5,31 @@
   "level": 29,
   "maxlevel": null,
 
+  "class": {
+    "first": "scientist",
+    "second": "hunter"
+  },
+
+  "parameters": [
+    ["strength", {
+      "value": null
+    }],
+    ["dexterity", {
+      "value": null
+    }],
+    ["speed", {
+      "value": null
+    }],
+    ["vitality", {
+      "value": null
+    }],
+    ["intellect", {
+      "value": 110
+    }],
+    ["charisma",{
+      "value": null
+    }]
+  ],
 
   "limitations": [
     "cowardice",
@@ -112,12 +137,6 @@
       "description": "teaching"
     },
     "description": "rare"
-  },
-
-
-  "class": {
-    "first": "scientist",
-    "second": "hunter"
   }
 
 }

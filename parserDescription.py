@@ -10,6 +10,7 @@ def createParser():
 
     basic_parser = character_parser.add_parser('basic', help='Basic info')
     basic_parser.add_argument('-i', '--info', dest='basic_info', help='Show basic info', action='store_true', default=False)
+    basic_parser.add_argument('-p', '--param', dest='param_info', help='Show basic info', action='store_true', default=False)
 
     skills_parser = character_parser.add_parser('skills', help='Skills info')
     skills_parser.add_argument('-i', '--info', dest='skill_info', help='Show skills info', action='store_true', default=False)
