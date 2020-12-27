@@ -21,10 +21,13 @@
       "value": null
     }],
     ["vitality", {
-      "value": null
+    "value": null
     }],
     ["intellect", {
       "value": 110
+    }],
+    ["willpower", {
+      "value": null
     }],
     ["charisma",{
       "value": null

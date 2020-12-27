@@ -5,6 +5,7 @@ import parserDescription
 main_parser = parserDescription.createParser()
 namespace = main_parser.parse_args(sys.argv[1:])
 
+
 ###
 ### MAIN INFO ABOUT CHARACTER
 ###
@@ -24,13 +25,14 @@ def basicInfo():
             print(datest['parameters'][4][0], end=': ')
             print(datest['parameters'][4][1]['value'])
 
+
 ###
 ### SKILL INFO
 ###
 def skillInfo():
-    if namespace.skill_info:
-        with open('hero_information.json') as data_json:
-            datest = json.load(data_json)
+    with open('hero_information.json') as data_json:
+        datest = json.load(data_json)
+        if namespace.skill_info:
             print('SKILLS')
             print('----------------------------------')
 
@@ -51,9 +53,9 @@ def skillInfo():
 ### FEATURE INFO
 ###
 def featureInfo():
-    if namespace.features_info:
-        with open('hero_information.json') as data_json:
-            datest = json.load(data_json)
+    with open('hero_information.json') as data_json:
+        datest = json.load(data_json)
+        if namespace.features_info:
             print('FEATURES')
             print('----------------------------------')
 
@@ -68,5 +70,3 @@ def featureInfo():
 
             print(datest['features'][3][0], end='' + ': ')
             print(datest['features'][3][1]['level'])
-
-
