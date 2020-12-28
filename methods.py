@@ -25,6 +25,8 @@ def basicInfo():
             print(datest['parameters'][4][0], end=': ')
             print(datest['parameters'][4][1]['value'])
 
+    data_json.close()
+
 
 ###
 ### SKILL INFO
@@ -48,6 +50,8 @@ def skillInfo():
             print(datest['skills'][3][0], end='' + ': ')
             print(datest['skills'][3][1]['level'])
 
+        data_json.close()
+
 
 ###
 ### FEATURE INFO
@@ -70,3 +74,5 @@ def featureInfo():
 
             print(datest['features'][3][0], end='' + ': ')
             print(datest['features'][3][1]['level'])
+
+        data_json.close()
