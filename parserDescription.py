@@ -14,7 +14,7 @@ def createParser():
     basic_parser = main_parser.add_parser('basic', help='Basic info')
     basic_parser.add_argument('-i', '--info', dest='basic_info', help='Show basic info',
                               action='store_true', default=False)
-    basic_parser.add_argument('-p', '--param', dest='param_info', help='Show basic info',
+    basic_parser.add_argument('-p', '--param', dest='param_info', help='Show parameters info',
                               action='store_true', default=False)
 
     skills_parser = main_parser.add_parser('skills', help='Skills info')
