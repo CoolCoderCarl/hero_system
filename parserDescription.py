@@ -29,12 +29,14 @@ def createParser():
 ### CREATE, BACKUP AND RESTORE PARSERS
 ###
 
-    basic_parser = main_parser.add_parser('system', help='System command')
-    basic_parser.add_argument('--create-from-template', dest='template', help='Create from template',
+    system_parser = main_parser.add_parser('system', help='System command')
+    system_parser.add_argument('-s', '--show-template', dest='show_template', help='Show JSON template',
+                               action='store_true', default=False)
+    system_parser.add_argument('-t', '--create-from-template', dest='template', help='Create from template',
                               action='store_true', default=False)
-    basic_parser.add_argument('--backup', dest='backup', help='Backup',
+    system_parser.add_argument('-b', '--backup', dest='backup', help='Backup the JSON hero info file',
                               action='store_true', default=False)
-    basic_parser.add_argument('--restore', dest='restore', help='Restore',
+    system_parser.add_argument('-r', '--restore', dest='restore', help='Restore from backup file',
                               action='store_true', default=False)
 
     return root_parser

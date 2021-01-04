@@ -9,9 +9,6 @@ if __name__ == '__main__':
         methods.skillInfo()
     elif methods.namespace.hero == 'features':
         methods.featureInfo()
-    elif sys_cmd.namespace.hero == 'template':
-        sys_cmd.createFromTemplate()
-    elif sys_cmd.namespace.hero == 'backup':
-        sys_cmd.backUpFile()
-    elif sys_cmd.namespace.hero == 'restore':
-        sys_cmd.restoreBackFile()
+    elif sys_cmd.commands.hero == 'system':
+        sys_cmd.systemCommands()
+

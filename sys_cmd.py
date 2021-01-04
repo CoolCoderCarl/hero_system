@@ -7,10 +7,10 @@ import parserDescription
 from pathlib import Path
 
 main_parser = parserDescription.createParser()
-namespace = main_parser.parse_args(sys.argv[1:])
+commands = main_parser.parse_args(sys.argv[1:])
 
 ###
-### PATH FOR BACKUP AND RESTORE
+### PATH FOR BACKUP AND RESTORE FILES
 ###
 hero_file = 'hero_information.json'
 hero_file_backup = 'hero_information.json.backup'
@@ -36,32 +36,54 @@ template_hero_describe = '''
 
   "parameters": [
     ["strength", {
-      "value": null
+      "value": null,
+      "description": "Hard physical",
+      "source": null
+    }],
+    ["endurance", {
+      "value": null,
+      "description": "Hard physical",
+      "source": "The Cooper test"
     }],
     ["dexterity", {
-      "value": null
+      "value": null,
+      "description": "Soft physical",
+      "source": null
     }],
     ["speed", {
-      "value": null
-    }],
-    ["vitality", {
-    "value": null
+      "value": null,
+      "description": "Soft physical",
+      "source": null
     }],
     ["intellect", {
-      "value": null
+      "value": null,
+      "description": "Hard mental",
+      "source": "The Eysenck Test"
+    }],
+    ["memory", {
+      "value": null,
+      "description": "Hard mental",
+      "source": null
     }],
     ["willpower", {
-      "value": null
+      "value": null,
+      "description": "Soft mental",
+      "source": null
     }],
     ["charisma",{
-      "value": null
+      "value": null,
+      "description": "Soft mental",
+      "source": null
     }]
   ],
 
   "limitations": [
     null
   ],
-
+  
+  "diseases": [
+    null
+  ],
 
   "skills": [
     [
@@ -90,7 +112,7 @@ template_hero_describe = '''
       "level": null
     }],
     {
-      "description": null
+      "description": "passive"
     }
   ],
   
@@ -101,13 +123,20 @@ template_hero_describe = '''
   }
 }
 '''
+
+def systemCommands():
+###
+### SHOW DEFAULT TEMPLATES
+###
+    if commands.show_template:
+        print(template_hero_describe)
+
 ###
 ### CREATE FILE IF NOT EXIST
 ###
-def createFromTemplate():
-    if namespace.template:
+    if commands.template:
         if os.path.isfile(hero_file):
-            print('FILE EXIST')
+            print('FILE EXIST: ' + os.getcwd() + '/' + hero_file)
         elif os.path.isfile(backupIs):
             print('BACKUP EXIST')
             print('RUN personalInfo system --restore COMMAND')
@@ -120,9 +149,10 @@ def createFromTemplate():
 ###
 ### BACKUP FILE
 ###
-def backUpFile():
-    if namespace.backup:
+    if commands.backup:
+        ### HOME DIRECTORY OF CURRENT USER
         src_dir = home_dir
+        ### FILE LOCATED IN CURRENT USER DIRECTORY
         src_file = os.path.join(src_dir + hero_file)
         print('SAVE FILE TO ' + backupIs)
         shutil.copy(src_file, backupIs)
@@ -130,11 +160,11 @@ def backUpFile():
 ###
 ### RESTORE FILE
 ###
-def restoreBackFile():
-    if namespace.restore:
+    if commands.restore:
         if os.path.isfile(backupIs):
             restore_dir = home_dir
             shutil.copy(backupIs, restore_dir)
             print('SUCCESS')
         else:
             print('BACKUP IS NOT EXIST')
+            print('RUN personalInfo system --backup COMMAND')
